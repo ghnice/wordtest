@@ -1,5 +1,5 @@
 module.exports={
-	part:2000,
+	part:80,
 	session:{
 		secret:'testword',
 		key:'testword',

@@ -5,11 +5,24 @@
     <title>测试</title>
 </head>
 <body>
-<button class="j-getBook">获取所有单词</button>
+<p><button class="j-getBook">获取所有单词</button></p>
+<p><input type="text" class="j-answer"><button class="j-save-answer">保存答案</button></p>
+<p><button class="j-answer-list">获取全部用户答案</button></p>
 <script src="/introduce/jQuery-3.1.1.js"></script>
 <script>
     $('.j-getBook').click(function(){
         $.post('/towords/get_book_list',function(data){
+            console.log(data);
+        });
+    });
+    $('.j-save-answer').click(function(){
+        var answer=$('.j-answer').val();
+        $.post('/towords/save_user_answer',{answer:answer},function(data){
+            console.log(data);
+        });
+    });
+    $('.j-answer-list').click(function(){
+        $.post('/towords/get_answer_list',function(data){
             console.log(data);
         });
     });
